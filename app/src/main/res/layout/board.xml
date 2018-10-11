@@ -162,6 +162,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
+                    android:gravity="bottom"
+                    android:id="@+id/textView"
                     android:layout_centerVertical="true"
                     android:text="@string/welcome_to_tick_tac_toe"
                     android:textColor="@color/displayTextColorDark"

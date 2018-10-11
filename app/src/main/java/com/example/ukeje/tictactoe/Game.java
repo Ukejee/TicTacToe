@@ -31,14 +31,14 @@ public class Game {
     }
 
     public void clearButtonText(){
-        for(int i = 0; i<gameBoard.btnIdArray.length;i++) {
-            addButtonText(" ",((GameBoardActivity)context).findViewById(gameBoard.btnIdArray[i]) );
+        for(int i = 0; i<gameBoard.btnIdArray.size();i++) {
+            addButtonText(" ",((GameBoardActivity)context).findViewById(gameBoard.btnIdArray.get(i)));
         }
     }
 
     public void clearButtonColor(){
-        for(int i = 0; i<gameBoard.btnIdArray.length; i++){
-            Button buttons = (Button) ((GameBoardActivity)context).findViewById(gameBoard.btnIdArray[i]);
+        for(int i = 0; i<gameBoard.btnIdArray.size(); i++){
+            Button buttons = (Button) ((GameBoardActivity)context).findViewById(gameBoard.btnIdArray.get(i));
             buttons.setTextColor(Color.BLACK);
         }
     }
@@ -61,7 +61,7 @@ public class Game {
     }
 
     public void changeButtonColor(int i){
-        Button buttons = (Button) ((GameBoardActivity)context).findViewById(gameBoard.btnIdArray[i]);
+        Button buttons = (Button) ((GameBoardActivity)context).findViewById(gameBoard.btnIdArray.get(i));
         buttons.setTextColor(Color.RED);
     }
 
@@ -157,7 +157,7 @@ public class Game {
 
     }
 
-    public boolean gameOver(){
+    public boolean hasGameEnded(){
         if(board.hasGameEnded()){
             isGameOver = true;
         }

@@ -2,24 +2,20 @@ package com.example.ukeje.tictactoe;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /* Author: Ukeje Emeka
     Email: ukejee3@gmail.com */
@@ -28,35 +24,39 @@ import java.util.Arrays;
 public class GameBoardActivity extends AppCompatActivity {
 
     Game mainGame = new Game(this);
-    ArrayList<Integer> list = new ArrayList<>(10);
-
-    int[] btnIdArray = {R.id.button1, R.id.button2, R.id.button3, R.id.button6, R.id.button5,
-            R.id.button4, R.id.button7, R.id.button8, R.id.button9};
+    List<Integer> btnIdArray = Arrays.asList(R.id._tile_0, R.id._tile_1, R.id._tile_2, R.id._tile_3, R.id._tile_4,
+            R.id._tile_5, R.id._tile_6, R.id._tile_7, R.id._tile_8);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_board);
+        setContentView(R.layout.board);
+        setupButtons();
         mainGame.setupGame();
+
 
     }
 
-    public ArrayList<Integer> onButtonClick(View view) {
-        list.add(R.id.button1);
-        list.add(R.id.button2);
-        list.add(R.id.button3);
-        list.add(R.id.button6);
-        list.add(R.id.button5);
-        list.add(R.id.button4);
-        list.add(R.id.button7);
-        list.add(R.id.button8);
-        list.add(R.id.button9);
-        mainGame.processPlayerTurn(list.indexOf(view.getId()) + 1, view);
-        mainGame.gameOver();
-        if(mainGame.isGameOver == true){
+    private void setupButtons(){
+        for (int buttonId : btnIdArray){
+            Button button = findViewById(buttonId);
+            button.setTextSize(70);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onButtonClick(v);
+                }
+            });
+        }
+    }
+
+    public void onButtonClick(View view) {
+
+        mainGame.processPlayerTurn(btnIdArray.indexOf(view.getId()) + 1, view);
+
+        if(mainGame.hasGameEnded()){
             openDialog();
         }
-        return list;
 
     }
 
