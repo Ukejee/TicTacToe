@@ -6,4 +6,12 @@
     <string name="dialog_title">Game Over</string>
     <string name="dialog_positive_message">Yes</string>
     <string name="dialog_negative_message">No</string>
+    <string name="player_1">Player 1</string>
+    <string name="x">X</string>
+    <string name="player_2">Player 2</string>
+    <string name="y">Y</string>
+    <string name="o">O</string>
+    <string name="welcome_to_tick_tac_toe">Welcome to Tick Tac Toe</string>
+    <string name="p1">P1</string>
+    <string name="p2">P2</string>
 </resources>

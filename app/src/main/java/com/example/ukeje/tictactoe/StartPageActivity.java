@@ -14,7 +14,8 @@ public class StartPageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start_page);
+        //setContentView(R.layout.activity_start_page);
+        setContentView(R.layout.board);
     }
 
     public void onClickStart(View view){
