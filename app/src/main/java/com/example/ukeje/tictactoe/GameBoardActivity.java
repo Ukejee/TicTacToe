@@ -68,7 +68,7 @@ public class GameBoardActivity extends AppCompatActivity {
             // Set Custom Title
             TextView title = new TextView(this);
             // Title Properties
-            title.setText("Game Over");
+            title.setText(R.string.game_over);
             title.setPadding(10, 10, 10, 10);   // Set Position
             title.setGravity(Gravity.CENTER);
             title.setTextColor(Color.BLACK);
@@ -78,7 +78,7 @@ public class GameBoardActivity extends AppCompatActivity {
             // Set Message
             TextView msg = new TextView(this);
             // Message Properties
-            msg.setText("Do you wish to play again?");
+            msg.setText(R.string.play_again_text);
             msg.setGravity(Gravity.CENTER_HORIZONTAL);
             msg.setTextColor(Color.BLACK);
             alertDialog.setView(msg);

@@ -14,4 +14,6 @@
     <string name="welcome_to_tick_tac_toe">Welcome to Tick Tac Toe</string>
     <string name="p1">P1</string>
     <string name="p2">P2</string>
+    <string name="game_over">Game Over</string>
+    <string name="play_again_text">Do you wish to play again?</string>
 </resources>
