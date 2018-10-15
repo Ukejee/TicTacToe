@@ -41,12 +41,6 @@ public class Board {
         return false;
     }
 
-    public void clearScreen() {
-        for(int i = 0; i < 20; i++) {
-            System.out.println("\n");
-        }
-    }
-
 
     public void initializeBoard() {
 

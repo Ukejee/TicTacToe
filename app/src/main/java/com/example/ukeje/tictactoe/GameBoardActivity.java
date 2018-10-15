@@ -95,7 +95,6 @@ public class GameBoardActivity extends AppCompatActivity {
             alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "NO", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
                     // Perform Action on Button
-                    moveTaskToBack(true);
                     android.os.Process.killProcess(android.os.Process.myPid());
                     System.exit(1);
                     //finish();

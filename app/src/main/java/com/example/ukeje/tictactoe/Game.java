@@ -4,14 +4,21 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AlertDialog;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Gravity;
+import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
 import java.util.Arrays;
+
 
 /* Author: Ukeje Emeka
     Email: ukejee3@gmail.com */
@@ -63,6 +70,14 @@ public class Game {
     public void changeButtonColor(int i){
         Button buttons = (Button) ((GameBoardActivity)context).findViewById(gameBoard.btnIdArray.get(i));
         buttons.setTextColor(Color.RED);
+    }
+
+    public void setScoreBoard(int p1Point, int p2Point){
+        TextView p1Score = ((GameBoardActivity)context).findViewById(R.id.p1_score);
+        TextView p2Score = ((GameBoardActivity)context).findViewById(R.id.p2_score);;
+
+        p1Score.setText("" + p1Point);
+        p2Score.setText("" + p2Point);
     }
 
     public void setupGame(){
@@ -137,6 +152,7 @@ public class Game {
                         changeButtonColor(board.winningArray.get(1));
                         changeButtonColor(board.winningArray.get(2));
                        addText(winningPlayer.name + " is the winner");
+                       setScoreBoard(p1.score,p2.score);
                        isGameOver = false;
                        //gameBoard.openDialog();
                     }
@@ -146,6 +162,30 @@ public class Game {
                     // change the current player
                     isPlayer1Turn = !isPlayer1Turn;
                     addText(getCurrentPlayer().name + " your turn" );
+
+                    if(isPlayer1Turn){
+                        TextView p2Name = ((GameBoardActivity)(context)).findViewById(R.id.p2_name);
+                        TextView p2Sign = ((GameBoardActivity)(context)).findViewById(R.id.p2_sign);
+                        TextView p1Name = ((GameBoardActivity)(context)).findViewById(R.id.p1_name);
+                        TextView p1Sign = ((GameBoardActivity)(context)).findViewById(R.id.p1_sign);
+
+                        p2Name.setTextColor(ContextCompat.getColor(context, R.color.displayTextColorDark));
+                        p2Sign.setTextColor(ContextCompat.getColor(context, R.color.displayTextColorDark));
+                        p1Name.setTextColor(ContextCompat.getColor(context, R.color.displayTextColor));
+                        p1Sign.setTextColor(ContextCompat.getColor(context, R.color.displayTextColor));
+
+                    }
+                    else{
+                        TextView p2Name = ((GameBoardActivity)(context)).findViewById(R.id.p2_name);
+                        TextView p2Sign = ((GameBoardActivity)(context)).findViewById(R.id.p2_sign);
+                        TextView p1Name = ((GameBoardActivity)(context)).findViewById(R.id.p1_name);
+                        TextView p1Sign = ((GameBoardActivity)(context)).findViewById(R.id.p1_sign);
+
+                        p2Name.setTextColor(ContextCompat.getColor(context, R.color.displayTextColor));
+                        p2Sign.setTextColor(ContextCompat.getColor(context, R.color.displayTextColor));
+                        p1Name.setTextColor(ContextCompat.getColor(context, R.color.displayTextColorDark));
+                        p1Sign.setTextColor(ContextCompat.getColor(context, R.color.displayTextColorDark));
+                    }
                 }
 
             }
@@ -177,33 +217,10 @@ public class Game {
     }
 
     public void setUpNewGame() {
-
+        //reintialize values
         board = new Board();
         board.initializeBoard();
         this.isGameOver = false;
-
-        //create players
-        if(newGame) {
-            p1 = new Player("Player 1", "X",0);
-            p2 = new Player("Player 2", "O",0);
-        }
-        else {
-            System.out.println(p1.name + " has won "+ p1.score+" times.");
-            System.out.println(p2.name + " has won "+ p2.score + " times.");
-        }
-
-    }
-
-    public void processPlayAgain() {
-
-        System.out.println("begin play again");
-        setUpNewGame();
-
-    }
-
-    public void playGame() {
-        //set up new game
-        setupGame();
 
     }
 

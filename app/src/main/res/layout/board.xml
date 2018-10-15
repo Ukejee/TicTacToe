@@ -30,6 +30,7 @@
 
 
                 <TextView
+                    android:id="@+id/p1_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
@@ -38,6 +39,7 @@
                     android:text="@string/player_1" />
 
                 <TextView
+                    android:id="@+id/p1_sign"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
@@ -58,6 +60,7 @@
 
 
                 <TextView
+                    android:id="@+id/p2_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
@@ -66,6 +69,7 @@
                     android:text="@string/player_2" />
 
                 <TextView
+                    android:id="@+id/p2_sign"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
@@ -96,6 +100,7 @@
                     android:text="@string/p1" />
 
                 <TextView
+                    android:id="@+id/p1_score"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
@@ -126,6 +131,7 @@
                     android:text="@string/p2" />
 
                 <TextView
+                    android:id="@+id/p2_score"
                     android:layout_width="match_parent"
                     android:layout_marginTop="1dp"
                     android:layout_height="wrap_content"
@@ -143,7 +149,7 @@
                 app:layout_constraintBottom_toTopOf="@id/display_horizontal_1"/>
 
             <View
-                android:layout_width="60dp"
+                android:layout_width="0dp"
                 android:background="@color/displayTextColorDark"
                 app:layout_constraintTop_toTopOf="@id/display_horizontal_0"
                 app:layout_constraintStart_toStartOf="@id/display_vertical_2"
